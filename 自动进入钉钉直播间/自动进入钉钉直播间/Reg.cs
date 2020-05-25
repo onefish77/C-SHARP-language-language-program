@@ -30,6 +30,7 @@ namespace 自动进入钉钉直播间
             RegistryKey key = Registry.LocalMachine.OpenSubKey(Key, false);//打开注册表
             if (key != null)//如果打开成功
             {
+                SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
                 string val = key.GetValue("UninstallString").ToString();
                 if (val != null)
                 {
